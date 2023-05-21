@@ -10,8 +10,13 @@ const routes = require("./routes/TodoRoute");
 const app = express();
 const PORT = process.env.PORT | 5000;
 
+const corsOptions = {
+    origin: "https://todolist1-8k7m.onrender.com", // frontend URI (ReactJS)
+}
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
+
+
 
 mongoose
     .connect(process.env.MONGO_URL, {
