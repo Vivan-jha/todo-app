@@ -11,7 +11,7 @@ function App() {
   const [sortOrder, setSortOrder] = useState("asc");
 
   const fetchTodoList = () => {
-    axios.get("https://todolist-dgla.onrender.com/get-todo")
+    axios.get("https://todolist-dft6.onrender.com/get-todo")
       .then((res) => setTodo(res.data))
       .catch((err) => console.log(err));
   };
@@ -22,7 +22,7 @@ function App() {
 
   const addUpdateTodo = () => {
     if (isUpdating === "") {
-      axios.post("https://todolist-dgla.onrender.com/save-todo", { text })
+      axios.post("https://todolist-dft6.onrender.com/save-todo", { text })
         .then((res) => {
           console.log(res.data);
           setText("");
@@ -30,7 +30,7 @@ function App() {
         })
         .catch((err) => console.log(err));
     } else {
-      axios.post("https://todolist-dgla.onrender.com/update-todo", { _id: isUpdating, text })
+      axios.post("https://todolist-dft6.onrender.com/update-todo", { _id: isUpdating, text })
         .then((res) => {
           console.log(res.data);
           setText("");
@@ -42,7 +42,7 @@ function App() {
   };
 
   const deleteTodo = (_id) => {
-    axios.post("https://todolist-dgla.onrender.com/delete-todo", { _id })
+    axios.post("https://todolist-dft6.onrender.com/delete-todo", { _id })
       .then((res) => {
         console.log(res.data);
         fetchTodoList(); // Fetch updated list after deleting a todo
